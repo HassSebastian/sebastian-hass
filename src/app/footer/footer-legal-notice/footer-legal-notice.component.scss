@@ -1,0 +1,38 @@
+.imgHover {
+  padding: 20px 0;
+  &:hover {
+    cursor: pointer;
+    transition: 200ms ease;
+    transform: translateY(-10px);
+  }
+}
+
+.LegalNotice {
+  color: white;
+  cursor: pointer;
+  &:hover {
+    transition: 200ms;
+    transform: scale(1.2);
+  }
+}
+
+.nameStyle {
+  font-family: "Poppins";
+  font-size: 1.0vw;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .responsiveStyle {
+    flex-direction: column;
+    align-items: center;
+  }
+  .logoAnimation {
+    display: none;
+  }
+  .nameStyle{
+    margin: 32px 0;
+    font-size: 16px;
+  }
+}

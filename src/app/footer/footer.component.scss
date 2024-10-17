@@ -1,0 +1,11 @@
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 200px solid #fffcf3;
+  border-bottom: 0 solid transparent;
+  border-left: 100vw solid transparent;
+}
+
+.overflow-hidden{
+  overflow-x: hidden;
+}

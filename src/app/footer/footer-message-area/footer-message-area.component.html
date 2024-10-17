@@ -1,0 +1,116 @@
+<div class="d-flex justify-content-center" id="email">
+  <form
+    class="position-relative d-flex flex-column align-items-center messageBox"
+  >
+    <div class="w-100">
+      <span>Your Name</span>
+      <!-- <input
+        [style.border]="
+          booleanNameRequired == 1
+            ? '4px solid green'
+            : booleanNameRequired == 2
+            ? '4px solid red'
+            : ''
+        "
+        class="w-100"
+        type="text"
+        name="name"
+        required
+        placeholder="First and last name please"
+        #nameField
+      /> -->
+      <input
+        [style.border]="
+          booleanNameRequired == 1
+            ? '4px solid green'
+            : booleanNameRequired == 2
+            ? '4px solid red'
+            : ''
+        "
+        class="w-100"
+        type="text"
+        name="name"
+        required
+        placeholder="First and last name please"
+        (keydown)="handleKeyPress($event, 'name')"
+        #nameField
+      />
+      <div
+        [style.color]="booleanNameRequired == 2 ? 'red' : ''"
+        class="required"
+      >
+        {{ nameRequired }}
+      </div>
+    </div>
+    <div class="w-100">
+      <span>Your Email</span>
+      <input
+        [style.border]="
+          booleanEmailRequired == 1
+            ? '4px solid green'
+            : booleanEmailRequired == 2
+            ? '4px solid red'
+            : ''
+        "
+        class="w-100"
+        type="email"
+        name="email"
+        required
+        (keydown)="handleKeyPress($event, 'email')"
+        #emailField
+      />
+      <div
+        [style.color]="booleanEmailRequired == 2 ? 'red' : ''"
+        class="required"
+      >
+        {{ emailRequired }}
+      </div>
+    </div>
+    <div class="w-100">
+      <span>Your Message</span>
+      <textarea
+        [style.border]="
+          booleanMessageRequired == 1
+            ? '4px solid green'
+            : booleanMessageRequired == 2
+            ? '4px solid red'
+            : ''
+        "
+        class="w-100"
+        type="text"
+        name="message"
+        (keydown)="handleKeyPress($event, 'message')"
+        #messageField
+      ></textarea>
+      <div
+        [style.color]="booleanMessageRequired == 2 ? 'red' : ''"
+        class="required"
+      >
+        {{ messageRequired }}
+      </div>
+    </div>
+    <div
+      [style.border]="
+        booleanNameRequired == 2 ||
+        booleanEmailRequired == 2 ||
+        booleanMessageRequired == 2
+          ? '4px solid red'
+          : booleanNameRequired == 1 ||
+            booleanEmailRequired == 1 ||
+            booleanMessageRequired == 1
+          ? '4px solid green'
+          : ''
+      "
+      class="buttonHover"
+      (click)="checkValueMail()"
+    >
+      Senden
+    </div>
+    <div
+      *ngIf="messageChanged"
+      class="position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-center align-items-center sending-overlay"
+    >
+      <span class="text-center messageBlink">{{ sendMessage }}</span>
+    </div>
+  </form>
+</div>

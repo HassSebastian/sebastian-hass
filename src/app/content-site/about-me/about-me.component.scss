@@ -1,0 +1,60 @@
+.boxborder {
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  width: 30vw;
+  aspect-ratio: 1/1;
+  border: 4px solid #ff9900;
+}
+
+.descriptionBox {
+  width: 45%;
+}
+
+.fontDescription {
+  font-family: "Overpass";
+  font-weight: 400;
+  font-size: 2vw;
+  padding: 1vw 0;
+}
+
+.fontAboutMe {
+  font-family: "Syne";
+  font-size: 4vw;
+  font-weight: 800;
+}
+
+img {
+  width: 30vw;
+  filter: grayscale(1);
+}
+
+@media (max-width: 880px) {
+  .aboutMeDescriptionContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .aboutMeContainer,
+  .fontDescription {
+    text-align: center;
+  }
+  .descriptionBox {
+    width: 80%;
+  }
+  .fontAboutMe {
+    font-size: 35px;
+  }
+  .fontDescription {
+    font-size: 17px;
+  }
+  img {
+    width: 60vw;
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 880px) {
+  .boxborder {
+    width: 60vw;
+  }
+}

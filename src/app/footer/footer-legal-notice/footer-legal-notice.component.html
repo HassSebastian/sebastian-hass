@@ -1,0 +1,31 @@
+<div
+  class="d-flex justify-content-between text-white pb-3 margin100 responsiveStyle"
+>
+  <div class="d-flex flex-column justify-content-around">
+    <div (click)="scrollTo('headline')">
+      <img draggable="false" class="logoAnimation" src="./assets/img/meinlogo-white.png" />
+    </div>
+    <div (click)="scrollTo('headline')" class="nameStyle">&#64; Sebastian Haß {{getYear()}}</div>
+  </div>
+  <div class="d-flex flex-column align-items-center">
+    <div class="d-flex align-items-center gap-5">
+      <a
+        class="imgHover"
+        href="https://github.com/HassSebastian"
+        target="_blank"
+        ><img draggable="false" src="./assets/img/github.png"
+      /></a>
+      <div (click)="scrollTo('email')" class="imgHover">
+        <img draggable="false" src="./assets/img/email.png" />
+      </div>
+      <a
+        class="imgHover"
+        href="https://linkedin.com/in/sebastian-haß-895819275"
+        target="_blank"
+        ><img draggable="false" src="./assets/img/linkedin.png"
+      /></a>
+    </div>
+    <span (click)="showLN()" class="LegalNotice">Imprint</span>
+  </div>
+</div>
+<app-legal-notice *ngIf="showLegalNotice"></app-legal-notice>
