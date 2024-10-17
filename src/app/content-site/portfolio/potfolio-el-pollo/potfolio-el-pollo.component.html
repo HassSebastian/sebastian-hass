@@ -3,6 +3,9 @@
   (mouseenter)="showDescription()"
   (mouseleave)="hideDescription()"
 >
+<!--
+  TODO: TouchScreenDetection einfügen
+-->
   <div class="position-relative d-flex justify-content-between w-100 mediaBox">
     <div class="w-50 order3 descriptionContainerBox">
       <span class="fontNumbers">03/05</span>
@@ -40,7 +43,7 @@
 
     <div
       [class.showDescriptionLeft]="service.isTouchDevice() ||slide"
-      class="position-absolute bottom-0 d-flex mb-2 gap-5 buttonservice.isTouchDevice() ||slideLeft"
+      class="position-absolute bottom-0 d-flex mb-2 gap-5 buttonSlideLeft"
     >
       <div class="buttonContainer">
         <a
