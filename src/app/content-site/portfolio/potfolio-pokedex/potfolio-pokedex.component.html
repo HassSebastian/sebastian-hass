@@ -3,16 +3,13 @@
   (mouseenter)="showDescription()"
   (mouseleave)="hideDescription()"
 >
-<!--
-  TODO: TouchScreenDetection einfügen
--->
   <div class="position-relative d-flex justify-content-between w-100 mediaBox">
     <div class="w-50 imgContainer">
       <img
         draggable="false"
         [style]="{
-          filter: slide ? 'grayscale(0)' : 'grayscale(1)',
-          transform: slide ? 'scale(1.1)' : 'scale(1)',
+          filter: service.isTouchDevice() ||slide ? 'grayscale(0)' : 'grayscale(1)',
+          transform: service.isTouchDevice() ||slide ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 300ms'
         }"
         src="./assets/img/project/pokedex.png"
@@ -21,30 +18,30 @@
     <div class="w-50 descriptionContainerBox">
       <span class="fontNumbers float-end text-end">04/05</span>
       <div class="descriptionContainer float-end text-end">
-        <span [style.opacity]="slide ? '1' : '0.2'" class="fontHeadline mt-3"
+        <span [style.opacity]="service.isTouchDevice() ||slide ? '1' : '0.2'" class="fontHeadline mt-3"
           >Pokedex</span
         >
-        <span [style.opacity]="slide ? '1' : '0.2'" class="fontLanguage"
+        <span [style.opacity]="service.isTouchDevice() ||slide ? '1' : '0.2'" class="fontLanguage"
           >JavaScript | HTML | CSS || Angular || API</span
         >
-        <span [style.opacity]="slide ? '1' : '0.2'" class="fontDescription"
+        <span [style.opacity]="service.isTouchDevice() ||slide ? '1' : '0.2'" class="fontDescription"
           >Based on PokéAPI a simple library that provides and catalogues
           pokemon information
         </span>
       </div>
     </div>
-    <div [style.opacity]="slide ? '1' : '0'" class="imgBorderRight"></div>
+    <div [style.opacity]="service.isTouchDevice() ||slide ? '1' : '0'" class="imgBorderRight"></div>
     <img
       draggable="false"
-      [style.opacity]="slide ? '1' : '0'"
-      [class.arrowRotateRight]="slide"
+      [style.opacity]="service.isTouchDevice() ||slide ? '1' : '0'"
+      [class.arrowRotateRight]="service.isTouchDevice() ||slide"
       class="position-absolute arrow"
       src="./assets/img/arrow.png"
     />
 
     <div
-      [class.showDescriptionRight]="slide"
-      class="position-absolute bottom-0 d-flex mb-2 gap-5 buttonSlideRight"
+      [class.showDescriptionRight]="service.isTouchDevice() ||slide"
+      class="position-absolute bottom-0 d-flex mb-2 gap-5 buttonservice.isTouchDevice() ||slideRight"
     >
       <div>
         <div class="buttonContainer mb-3">
@@ -65,12 +62,10 @@
         </div>
       </div>
       <div>
-        <!--
-          TODO: Link zu Pokedex NG einfügen
-        -->
         <div class="buttonContainer mb-3">
           <a
             class="buttonHover"
+            href="https://github.com/HassSebastian/pokedex-ng"
             target="_blank"
             >GitHub NG</a
           >
@@ -78,6 +73,7 @@
         <div class="buttonContainer">
           <a
             class="buttonHover"
+            href="https://pokedex-ng.sebastian-hass.de/index.html"
             target="_blank"
             >Live NG</a
           >

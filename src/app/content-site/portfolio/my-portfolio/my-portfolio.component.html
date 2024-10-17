@@ -3,20 +3,23 @@
   (mouseenter)="showDescription()"
   (mouseleave)="hideDescription()"
 >
-<!--
-  TODO: TouchScreenDetection einfügen
--->
   <div class="position-relative d-flex justify-content-between w-100 mediaBox">
     <div class="w-50 order3 descriptionContainerBox">
       <span class="fontNumbers">05/05</span>
       <div class="descriptionContainer">
-        <span [style.opacity]="slide ? '1' : '0.2'" class="fontHeadline mt-5"
+        <span
+          [style.opacity]="service.isTouchDevice() || slide ? '1' : '0.2'"
+          class="fontHeadline mt-5"
           >My Portfolio</span
         >
-        <span [style.opacity]="slide ? '1' : '0.2'" class="fontLanguage"
+        <span
+          [style.opacity]="service.isTouchDevice() || slide ? '1' : '0.2'"
+          class="fontLanguage"
           >Angular | TypeScript | SCSS | Bootstrap
         </span>
-        <span [style.opacity]="slide ? '1' : '0.2'" class="fontDescription"
+        <span
+          [style.opacity]="service.isTouchDevice() || slide ? '1' : '0.2'"
+          class="fontDescription"
           >This is my portfolio page.</span
         >
       </div>
@@ -25,25 +28,30 @@
       <img
         draggable="false"
         [style]="{
-          filter: slide ? 'grayscale(0)' : 'grayscale(1)',
-          transform: slide ? 'scale(1.1)' : 'scale(1)',
+          filter:
+            service.isTouchDevice() || slide ? 'grayscale(0)' : 'grayscale(1)',
+          transform:
+            service.isTouchDevice() || slide ? 'scale(1.1)' : 'scale(1)',
           transition: 'transform 300ms'
         }"
         src="./assets/img/project/mySite.png"
       />
     </div>
-    <div [style.opacity]="slide ? '1' : '0'" class="imgBorderLeft"></div>
+    <div
+      [style.opacity]="service.isTouchDevice() || slide ? '1' : '0'"
+      class="imgBorderLeft"
+    ></div>
     <img
       draggable="false"
-      [style.opacity]="slide ? '1' : '0'"
-      [class.arrowRotateLeft]="slide"
+      [style.opacity]="service.isTouchDevice() || slide ? '1' : '0'"
+      [class.arrowRotateLeft]="service.isTouchDevice() || slide"
       class="position-absolute arrow"
       src="./assets/img/arrow.png"
     />
 
     <div
-      [class.showDescriptionLeft]="slide"
-      class="position-absolute bottom-0 d-flex mb-2 gap-5 justify-content-center buttonSlideLeft"
+      [class.showDescriptionLeft]="service.isTouchDevice() || slide"
+      class="position-absolute bottom-0 d-flex mb-2 gap-5 justify-content-center buttonservice.isTouchDevice() ||slideLeft"
     >
       <div class="buttonContainer">
         <a

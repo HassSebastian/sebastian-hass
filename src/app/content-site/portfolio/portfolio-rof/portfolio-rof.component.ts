@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { ServiceService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-portfolio-rof',
@@ -7,7 +8,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class PortfolioRofComponent {
   slide: boolean = false;
-  @HostListener('window:resize', ['$event'])
+  // @HostListener('window:resize', ['$event'])
 
   
   /**
@@ -15,14 +16,16 @@ export class PortfolioRofComponent {
    * @param {Event} event - The Resize event object.
    *
    */
-  onWindowResize(event: Event) {
-    const screenWidth = window.innerWidth;
-    if (screenWidth < 880) {
-      this.slide = true;
-    } else {
-      this.slide = false;
-    }
-  }
+  // onWindowResize(event: Event) {
+  //   const screenWidth = window.innerWidth;
+  //   if (screenWidth < 880) {
+  //     this.slide = true;
+  //   } else {
+  //     this.slide = false;
+  //   }
+  // }
+
+  constructor(public service: ServiceService) {}
 
 
   /**

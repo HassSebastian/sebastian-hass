@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { ServiceService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-potfolio-el-pollo',
@@ -10,7 +11,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class PotfolioElPolloComponent {
   slide: boolean = false;
-  @HostListener('window:resize', ['$event'])
+  // @HostListener('window:resize', ['$event'])
 
   
   /**
@@ -18,14 +19,16 @@ export class PotfolioElPolloComponent {
    * @param {Event} event - The Resize event object.
    *
    */
-  onWindowResize(event: Event) {
-    const screenWidth = window.innerWidth;
-    if (screenWidth < 880) {
-      this.slide = true;
-    } else {
-      this.slide = false;
-    }
-  }
+  // onWindowResize(event: Event) {
+  //   const screenWidth = window.innerWidth;
+  //   if (screenWidth < 880) {
+  //     this.slide = true;
+  //   } else {
+  //     this.slide = false;
+  //   }
+  // }
+
+  constructor(public service: ServiceService) {}
 
 
   /**
